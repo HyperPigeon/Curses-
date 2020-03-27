@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "package": "net.hyper_pigeon.curses.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "EnchantmentHelperMixin",
+    "ItemStackMixin"
+  ],
+  "client": [
+    "CursesMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
