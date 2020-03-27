@@ -1,15 +1,15 @@
-# Fabric Example Mod
+# Curses
 
-## Setup
+## Description
 
-1. Edit build.gradle and mod.json to suit your needs.
-    * The "mixins" object can be removed from mod.json if you do not need to use mixins.
-    * Please replace all occurences of "modid" with your own mod ID - sometimes, a different string may also suffice.
-2. Run the following command:
+As of right now, there are three new, wonderful curses that this mod adds to the game:
+ 
+   1) Curse of Poverty: Any entity killed by a tool/weapon that has this cursed enchantment applied to it shall not drop any items or loot. 
+ 
+   2) Curse of Fragility: Any breakable item afflicted with this curse has a random chance of breaking when used.
+ 
+   3) Curse of Instability: Tools enchanted with this curse will explode in the player's hand when hitting an entity that's on fire, while         armour pieces enchanted with this curse will explode if the player takes any fire damage.
 
-```
-./gradlew idea
-```
 
 ## License
 
