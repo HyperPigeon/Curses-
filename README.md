@@ -9,6 +9,8 @@ As of right now, there are three new, wonderful curses that this mod adds to the
    2) Curse of Fragility: Any breakable item afflicted with this curse has a random chance of breaking when used.
  
    3) Curse of Instability: Tools enchanted with this curse will explode in the player's hand when hitting an entity that's on fire, while         armour pieces enchanted with this curse will explode if the player takes any fire damage.
+   
+   4) Curse of Death: If an entity equips or holds an item enchanted with this curse, then they will die instantly. 
 
 
 ## License
