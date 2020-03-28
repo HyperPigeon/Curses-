@@ -15,6 +15,8 @@ public class CursesMod implements ModInitializer {
 
 	public static Enchantment INSTABILITY;
 
+	public static Enchantment DEATH;
+
 	@Override
 	public void onInitialize() {
 		// This code runs as soon as Minecraft is in a mod-load-ready state.
@@ -26,7 +28,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "poverty"),
 				new PovertyCurseEnchantment(
-						Enchantment.Weight.RARE,
+						Enchantment.Weight.VERY_RARE,
 						EnchantmentTarget.WEAPON,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
@@ -39,7 +41,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "fragility"),
 				new FragilityCurseEnchantment(
-						Enchantment.Weight.RARE,
+						Enchantment.Weight.VERY_RARE,
 						EnchantmentTarget.BREAKABLE,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
@@ -51,6 +53,19 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "instability"),
 				new InstabilityCurseEnchantment(
+						Enchantment.Weight.RARE,
+						EnchantmentTarget.BREAKABLE,
+						new EquipmentSlot[] {
+								EquipmentSlot.MAINHAND
+						}
+				)
+		);
+
+
+		DEATH = Registry.register(
+				Registry.ENCHANTMENT,
+				new Identifier("curses", "death"),
+				new DeathCurseEnchantment(
 						Enchantment.Weight.RARE,
 						EnchantmentTarget.BREAKABLE,
 						new EquipmentSlot[] {

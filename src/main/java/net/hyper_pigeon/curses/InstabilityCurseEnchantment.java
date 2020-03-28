@@ -21,11 +21,11 @@ public class InstabilityCurseEnchantment extends Enchantment {
 
 
     public int getMinimumPower(int level) {
-        return 30;
+        return 25;
     }
 
     public int getMaximumPower(int level) {
-        return 70;
+        return 75;
     }
 
 
