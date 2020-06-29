@@ -8,7 +8,7 @@ import net.minecraft.entity.LivingEntity;
 
 public class PovertyCurseEnchantment extends Enchantment {
 
-    public  PovertyCurseEnchantment(Weight weight, EnchantmentTarget target, EquipmentSlot[] slots)
+    public  PovertyCurseEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
     {
         super(weight, target, slots);
     }

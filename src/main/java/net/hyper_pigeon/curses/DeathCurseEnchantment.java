@@ -6,7 +6,7 @@ import net.minecraft.entity.EquipmentSlot;
 
 public class DeathCurseEnchantment extends Enchantment {
 
-    protected DeathCurseEnchantment(Weight weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    protected DeathCurseEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, type, slotTypes);
     }
 

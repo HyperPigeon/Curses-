@@ -11,7 +11,7 @@ import java.util.Iterator;
 
 public class FragilityCurseEnchantment extends Enchantment {
 
-    public FragilityCurseEnchantment(Weight weight, EnchantmentTarget target, EquipmentSlot[] slots)
+    public FragilityCurseEnchantment(Rarity weight, EnchantmentTarget target, EquipmentSlot[] slots)
     {
         super(weight, EnchantmentTarget.BREAKABLE, slots);
     }

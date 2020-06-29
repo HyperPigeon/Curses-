@@ -15,7 +15,7 @@ import net.minecraft.world.explosion.Explosion;
 
 public class InstabilityCurseEnchantment extends Enchantment {
 
-    protected InstabilityCurseEnchantment(Weight weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
+    protected InstabilityCurseEnchantment(Rarity weight, EnchantmentTarget type, EquipmentSlot[] slotTypes) {
         super(weight, EnchantmentTarget.BREAKABLE, slotTypes);
     }
 
@@ -45,8 +45,8 @@ public class InstabilityCurseEnchantment extends Enchantment {
     public float explosion_power (PlayerEntity user) {
         PlayerInventory inventory = user.inventory;
         float amount = 2;
-        for(int i = 0; i < inventory.getInvSize(); i++) {
-            ItemStack stack = inventory.getInvStack(i);
+        for(int i = 0; i < inventory.size(); i++) {
+            ItemStack stack = inventory.getStack(i);
             float k = EnchantmentHelper.getLevel(CursesMod.INSTABILITY, stack);
             if(k > 0) {
                 amount += 2;
@@ -66,11 +66,12 @@ public class InstabilityCurseEnchantment extends Enchantment {
             user.getMainHandStack().damage(1000, user, (e) -> {
                 e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND);
             });
-            float e_power = 2;
+            float e_power = 2.5F;
             if(user instanceof PlayerEntity) {
                 e_power = explosion_power((PlayerEntity) user);
             }
-            user.getEntityWorld().createExplosion(EntityType.TNT.create(user.getEntityWorld()), DamageSource.MAGIC, user.getX(), user.getY(), user.getZ(), e_power, false, Explosion.DestructionType.DESTROY);
+            user.getEntityWorld().createExplosion(EntityType.TNT.create(user.getEntityWorld()),user.getX(), user.getY(), user.getZ(), e_power, Explosion.DestructionType.DESTROY);
+
         }
         super.onTargetDamaged(user, target, level);
     }

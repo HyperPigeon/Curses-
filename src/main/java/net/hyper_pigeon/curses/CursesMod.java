@@ -28,7 +28,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "poverty"),
 				new PovertyCurseEnchantment(
-						Enchantment.Weight.VERY_RARE,
+						Enchantment.Rarity.VERY_RARE,
 						EnchantmentTarget.WEAPON,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
@@ -41,7 +41,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "fragility"),
 				new FragilityCurseEnchantment(
-						Enchantment.Weight.VERY_RARE,
+						Enchantment.Rarity.VERY_RARE,
 						EnchantmentTarget.BREAKABLE,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
@@ -53,7 +53,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "instability"),
 				new InstabilityCurseEnchantment(
-						Enchantment.Weight.RARE,
+						Enchantment.Rarity.RARE,
 						EnchantmentTarget.BREAKABLE,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
@@ -66,7 +66,7 @@ public class CursesMod implements ModInitializer {
 				Registry.ENCHANTMENT,
 				new Identifier("curses", "death"),
 				new DeathCurseEnchantment(
-						Enchantment.Weight.RARE,
+						Enchantment.Rarity.RARE,
 						EnchantmentTarget.BREAKABLE,
 						new EquipmentSlot[] {
 								EquipmentSlot.MAINHAND
