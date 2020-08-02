@@ -3,13 +3,11 @@ package net.hyper_pigeon.curses.mixin;
 
 import net.hyper_pigeon.curses.CursesMod;
 import net.minecraft.advancement.criterion.Criteria;
-import net.minecraft.advancement.criterion.ItemDurabilityChangedCriterion;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -23,7 +21,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-
 
 import java.util.Random;
 import java.util.function.Consumer;
@@ -109,12 +106,12 @@ public class ItemStackMixin {
         else {
             if (amount > 0) {
                 int i = EnchantmentHelper.getLevel(CursesMod.INSTABILITY, (ItemStack)(Object)this);
-                if(player.isOnFire()) {
-                    if (i >= 1) {
-                        if (player != null) {
+                if (player != null) {
+                    if (player.isOnFire()) {
+                        if (i >= 1) {
                             Criteria.ITEM_DURABILITY_CHANGED.trigger(player, (ItemStack) (Object) this, this.getDamage() * 2500);
                             //player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), DamageSource.MAGIC, player.getX(), player.getY(), player.getZ(), 5, false, Explosion.DestructionType.DESTROY);
-                            player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()),player.getX(), player.getY(), player.getZ(), 5, Explosion.DestructionType.DESTROY);
+                            player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), player.getX(), player.getY(), player.getZ(), 5, Explosion.DestructionType.DESTROY);
                             callback.setReturnValue(true);
                         }
                     }
