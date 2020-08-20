@@ -5,7 +5,6 @@ import net.hyper_pigeon.curses.CursesMod;
 import net.minecraft.advancement.criterion.Criteria;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.entity.EntityType;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -14,7 +13,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.explosion.Explosion;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -26,13 +24,7 @@ import java.util.Random;
 import java.util.function.Consumer;
 
 @Mixin(ItemStack.class)
-public class ItemStackMixin {
-
-    @Shadow
-    public native void postMine(World world, BlockState state, BlockPos pos, PlayerEntity miner);
-
-    @Shadow
-    public native boolean damage(int amount, Random random, ServerPlayerEntity player);
+public abstract class ItemStackMixin {
 
     @Shadow
     public native <T extends LivingEntity> void damage(int amount, T entity, Consumer<T> breakCallback);
@@ -97,31 +89,35 @@ public class ItemStackMixin {
     }
 
 
-    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
-    public void instability_activation(int amount, Random random, ServerPlayerEntity player,
-                                 CallbackInfoReturnable<Boolean> callback) {
-        if (!this.isDamageable()) {
-            callback.setReturnValue(false);
-        }
-        else {
-            if (amount > 0) {
-                int i = EnchantmentHelper.getLevel(CursesMod.INSTABILITY, (ItemStack)(Object)this);
-                if (player != null) {
-                    if (player.isOnFire()) {
-                        if (i >= 1) {
-                            Criteria.ITEM_DURABILITY_CHANGED.trigger(player, (ItemStack) (Object) this, this.getDamage() * 2500);
-                            //player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), DamageSource.MAGIC, player.getX(), player.getY(), player.getZ(), 5, false, Explosion.DestructionType.DESTROY);
-                            player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), player.getX(), player.getY(), player.getZ(), 5, Explosion.DestructionType.DESTROY);
-                            callback.setReturnValue(true);
-                        }
-                    }
-                }
-            }
-            else {
-                callback.setReturnValue(false);
-            }
+//    @Inject(at = @At("HEAD"), method = "damage", cancellable = true)
+//    public void instability_activation(int amount, Random random, ServerPlayerEntity player,
+//                                 CallbackInfoReturnable<Boolean> callback) {
+//        if (!this.isDamageable()) {
+//            callback.setReturnValue(false);
+//        }
+//        else {
+//            if (amount > 0) {
+//                int i = EnchantmentHelper.getLevel(CursesMod.INSTABILITY, (ItemStack)(Object)this);
+//                if (player != null) {
+//                    if (player.isOnFire()) {
+//                        if (i >= 1) {
+//                            Criteria.ITEM_DURABILITY_CHANGED.trigger(player, (ItemStack) (Object) this, this.getDamage() * 2500);
+//                            //player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), DamageSource.MAGIC, player.getX(), player.getY(), player.getZ(), 5, false, Explosion.DestructionType.DESTROY);
+//                            player.getEntityWorld().createExplosion(EntityType.TNT.create(player.getEntityWorld()), player.getX(), player.getY(), player.getZ(), 5, Explosion.DestructionType.DESTROY);
+//                            callback.setReturnValue(true);
+//                        }
+//                    }
+//                }
+//            }
+//            else {
+//                callback.setReturnValue(false);
+//            }
+//
+//        }
+//
+//    }
 
-        }
 
-    }
+
+
 }
