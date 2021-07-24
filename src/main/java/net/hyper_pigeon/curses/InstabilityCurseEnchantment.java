@@ -30,7 +30,7 @@ public class InstabilityCurseEnchantment extends Enchantment {
 
 
     public float explosion_power (PlayerEntity user) {
-        PlayerInventory inventory = user.inventory;
+        PlayerInventory inventory = user.getInventory();
         float amount = 2;
         for(int i = 0; i < inventory.size(); i++) {
             ItemStack stack = inventory.getStack(i);
