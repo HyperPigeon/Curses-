@@ -23,7 +23,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 public abstract class LivingEntityMixin extends Entity {
     @Shadow
     @Final
-    private DefaultedList<ItemStack> equippedArmor;
+    private DefaultedList<ItemStack> syncedArmorStacks;
 
     @Shadow public native void kill();
 
@@ -36,10 +36,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "tick")
     public void instaKill(CallbackInfo info) {
-        ItemStack helmetStack = equippedArmor.get(0);
-        ItemStack chestStack = equippedArmor.get(1);
-        ItemStack leggingsStack = equippedArmor.get(2);
-        ItemStack bootsStack = equippedArmor.get(3);
+        ItemStack helmetStack = syncedArmorStacks.get(0);
+        ItemStack chestStack = syncedArmorStacks.get(1);
+        ItemStack leggingsStack = syncedArmorStacks.get(2);
+        ItemStack bootsStack = syncedArmorStacks.get(3);
         ItemStack handStack = getMainHandStack();
 
         if(EnchantmentHelper.getLevel(CursesMod.DEATH, helmetStack) >= 1 || EnchantmentHelper.getLevel(CursesMod.DEATH, chestStack) >= 1
@@ -52,10 +52,10 @@ public abstract class LivingEntityMixin extends Entity {
 
     @Inject(at = @At("HEAD"), method = "damage")
     public void blowUpArmor(DamageSource source, float amount, CallbackInfoReturnable<Boolean> callback) {
-        ItemStack helmetStack = equippedArmor.get(0);
-        ItemStack chestStack = equippedArmor.get(1);
-        ItemStack leggingsStack = equippedArmor.get(2);
-        ItemStack bootsStack = equippedArmor.get(3);
+        ItemStack helmetStack = syncedArmorStacks.get(0);
+        ItemStack chestStack = syncedArmorStacks.get(1);
+        ItemStack leggingsStack = syncedArmorStacks.get(2);
+        ItemStack bootsStack = syncedArmorStacks.get(3);
         float explosive_power = 5;
 
         if(source.isFire()) {
