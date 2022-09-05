@@ -11,5 +11,6 @@
 
 
   "enchantment.curses.death": "Curse of Death",
-  "enchantment.curses.death": "Causes the user to instantly die when equipped."
+  "enchantment.curses.death.desc": "Causes the user to instantly die when equipped."
+
 }
