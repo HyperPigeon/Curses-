@@ -3,7 +3,8 @@
   "enchantment.curses.poverty.desc": "Entities won't drop loot when killed.",
 
   "enchantment.curses.fragility": "Curse of Fragility",
-  "enchantment.curses.fragility": "The item may rasndomly break.",
+  "enchantment.curses.fragility.desc": "The item may randomly break.",
+
 
   "enchantment.curses.instability": "Curse of Instability",
   "enchantment.curses.instability": "Causes an explosion when in contact with fire.",
