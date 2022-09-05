@@ -7,7 +7,8 @@
 
 
   "enchantment.curses.instability": "Curse of Instability",
-  "enchantment.curses.instability": "Causes an explosion when in contact with fire.",
+  "enchantment.curses.instability.desc": "Causes an explosion when in contact with fire.",
+
 
   "enchantment.curses.death": "Curse of Death",
   "enchantment.curses.death": "Causes the user to instantly die when equipped."
