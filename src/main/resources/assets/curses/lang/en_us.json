@@ -1,9 +1,16 @@
 {
   "enchantment.curses.poverty": "Curse of Poverty",
+  "enchantment.curses.poverty.desc": "Entities won't drop loot when killed.",
 
   "enchantment.curses.fragility": "Curse of Fragility",
+  "enchantment.curses.fragility.desc": "The item may randomly break.",
+
 
   "enchantment.curses.instability": "Curse of Instability",
+  "enchantment.curses.instability.desc": "Causes an explosion when in contact with fire.",
 
-  "enchantment.curses.death": "Curse of Death"
+
+  "enchantment.curses.death": "Curse of Death",
+  "enchantment.curses.death.desc": "Causes the user to instantly die when equipped."
+
 }
